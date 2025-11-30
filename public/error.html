@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 • Mimi is Confused</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/favicon-cat.png" type="image/png">
+  <style>
+    /* Extra styles only for 404 page */
+    .error-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .error-code {
+      font-family: 'Playfair Display', serif;
+      font-size: 12rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff9a9e, #fbc2eb, #a18cd1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      animation: textGlow 6s ease infinite;
+      text-shadow: 0 0 60px rgba(255, 105, 180, 0.7);
+    }
+    .error-message {
+      font-size: 2rem;
+      margin: 1.5rem 0;
+      opacity: 0.9;
+    }
+    .error-cat {
+      width: 320px;
+      max-width: 90vw;
+      border-radius: 30px;
+      margin: 3rem 0;
+      border: 4px solid rgba(255, 182, 255, 0.4);
+      box-shadow: 0 30px 70px rgba(255, 105, 180, 0.4);
+      transition: all 0.6s ease;
+    }
+    .error-cat:hover {
+      transform: scale(1.08) rotate(4deg);
+      box-shadow: 0 50px 100px rgba(255, 105, 180, 0.6);
+    }
+    .back-home {
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.3rem;
+      background: rgba(255, 105, 180, 0.2);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 105, 180, 0.4);
+      border-radius: 50px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .back-home:hover {
+      background: rgba(255, 105, 180, 0.4);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(255, 105, 180, 0.5);
+    }
+    @media (max-width: 640px) {
+      .error-code { font-size: 8rem; }
+      .error-message { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating paw particles (same as main page) -->
+  <div class="particles" id="particles"></div>
+
+  <div class="error-container">
+    <h1 class="error-code">404</h1>
+    <p class="error-message">
+      Mimi looked everywhere...<br>
+      This page has been knocked off the table.
+    </p>
+
+    <img src="images/yawn.png" alt="Mimi looking confused" class="error-cat" />
+
+    <p style="max-width: 600px; margin: 2rem auto; opacity: 0.8;">
+      The void swallowed it. Or maybe I was chasing a laser pointer.<br>
+      Either way, it’s gone forever.
+    </p>
+
+    <a href="index.html" class="back-home">
+      Take Me Home Human 🐾
+    </a>
+  </div>
+
+</body>
+</html>

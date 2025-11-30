@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mimi • The Cutest Cat on the Internet</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon-cat.png" type="image/png">
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="name">Mimi</h1>
+      <p class="tagline">Professional napper • Treat enthusiast • World dominator in training</p>
+      <button class="mode-toggle" aria-label="Toggle dark/light mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="about">
+      <h2>About Mimi</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a <strong>fluffy void with attitude</strong>. I enjoy judging humans from high places, knocking things off tables at 3 AM, and demanding treats exactly 2 minutes before dinner time.</p>
+          <ul class="facts">
+            <li>Birthday: I don't count</li>
+            <li>Favorite toy: Anything that moves when I'm bored</li>
+            <li>Sleeps: 23 hours a day - Very busy</li>
+            <li>Achievements: Master of the side-eye</li>
+          </ul>
+        </div>
+        <img src="images/profile.png" alt="Mimi looking majestic" class="portrait" />
+      </div>
+    </section>
+
+    <section class="gallery">
+      <h2>Mimi Gallery</h2>
+      <div class="grid">
+        <img src="images/yawn.png" alt="Mimi yawns" />
+          <img src="images/hiding.png" alt="Mimi hides" />
+          <img src="images/paws.png" alt="Meet the boss" />
+          <img src="images/dontcare.png" alt="Mimi don't care" />
+          <img src="images/sleeping.png" alt="Mimi sleeping" />
+         <img src="images/cute.png" alt="Mimi cute" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 🐾 and ☕ for Mimi • 2025</p>
+  </footer>
+
+  <script>
+    // Simple dark/light mode toggle
+    const toggle = document.querySelector('.mode-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      toggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+    });
+</script>
+</body>
+</html>
