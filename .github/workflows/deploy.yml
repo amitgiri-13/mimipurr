@@ -20,7 +20,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      - name: Sync files to S3
-        run: aws s3 sync ./public s3://${{ secrets.BUCKET_NAME }}  --delete
+      - name: Deploy CloudFormation Stack
+        run: |
+          aws cloudformation deploy \
+            --template-file ./Templates/CloudFormation/s3-static-website.yaml \
+            --stack-name s3-website-stack \
+            --parameter-overrides BucketName=${{ secrets.BUCKET_NAME }} \
+            --capabilities CAPABILITY_NAMED_IAM
 
+      - name: Sync files to S3
+        run: |
+          aws s3 sync ./public s3://${{ secrets.BUCKET_NAME }} --delete
 
