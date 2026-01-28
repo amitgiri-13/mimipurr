@@ -1,26 +1,54 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: S3 Bucket with Static Website Hosting Enabled
+Description: S3 Bucket with Static Website Hosting (Secure & Audited)
 
 Parameters:
   BucketName:
     Type: String
-    Description: The name of the S3 bucket
+    Description: The name of the static website bucket
+
+  LogsBucketName:
+    Type: String
+    Description: Bucket name for access logs
 
 Resources:
+
+  # Bucket to store access logs
+  LogsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref LogsBucketName
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
   StaticWebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref BucketName
+
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+
+      VersioningConfiguration:
+        Status: Enabled
+
+      LoggingConfiguration:
+        DestinationBucketName: !Ref LogsBucket
+        LogFilePrefix: access-logs/
+
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false
         IgnorePublicAcls: false
         RestrictPublicBuckets: false
 
-  BucketPolicy:
+  StaticBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket: !Ref StaticWebsiteBucket
@@ -35,9 +63,9 @@ Resources:
 
 Outputs:
   WebsiteURL:
-    Description: Static website URL
+    Description: Static website URL (HTTP-only by design)
     Value: !GetAtt StaticWebsiteBucket.WebsiteURL
 
   BucketNameOutput:
-    Description: The name of the created bucket
+    Description: Website bucket name
     Value: !Ref StaticWebsiteBucket
