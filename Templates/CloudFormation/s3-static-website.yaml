@@ -11,21 +11,6 @@ Parameters:
     Description: Bucket name for access logs
 
 Resources:
-
-  # Bucket to store access logs
-  LogsBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !Ref LogsBucketName
-      OwnershipControls:
-        Rules:
-          - ObjectOwnership: BucketOwnerPreferred
-      PublicAccessBlockConfiguration:
-        BlockPublicAcls: true
-        BlockPublicPolicy: true
-        IgnorePublicAcls: true
-        RestrictPublicBuckets: true
-
   StaticWebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -39,7 +24,7 @@ Resources:
         Status: Enabled
 
       LoggingConfiguration:
-        DestinationBucketName: !Ref LogsBucket
+        DestinationBucketName: "log-bucket12345678-adex"
         LogFilePrefix: access-logs/
 
       PublicAccessBlockConfiguration:
