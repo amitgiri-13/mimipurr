@@ -18,7 +18,7 @@ jobs:
       - uses: SonarSource/sonarqube-scan-action@v6
         with:
           args: >
-            -Dsonar.projectKey=mimipurr-website
+            -Dsonar.projectKey=mimipurr
             -Dsonar.projectName=mimipurr
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
