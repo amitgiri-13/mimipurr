@@ -6,10 +6,6 @@ Parameters:
     Type: String
     Description: The name of the static website bucket
 
-  LogsBucketName:
-    Type: String
-    Description: Bucket name for access logs
-
 Resources:
   StaticWebsiteBucket:
     Type: AWS::S3::Bucket
