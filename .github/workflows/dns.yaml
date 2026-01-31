@@ -1,4 +1,4 @@
-name: Terraform Apply (Prod firewall)
+name: Terraform Apply (update dns record)
 
 on:
   workflow_dispatch:
