@@ -24,6 +24,6 @@ jobs:
           aws cloudformation deploy \
             --template-file ./Templates/CloudFormation/s3-static-website.yaml \
             --stack-name s3-website-stack \
-            --parameter-overrides BucketName=${{ secrets.DOMAIN }} \
+            --parameter-overrides BucketName=${{ vars.DOMAIN }} \
             --capabilities CAPABILITY_NAMED_IAM
 
