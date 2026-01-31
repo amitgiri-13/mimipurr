@@ -23,10 +23,6 @@ Resources:
       VersioningConfiguration:
         Status: Enabled
 
-      LoggingConfiguration:
-        DestinationBucketName: "log-bucket12345678-adex"
-        LogFilePrefix: access-logs/
-
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false
